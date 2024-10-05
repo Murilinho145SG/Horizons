@@ -20,7 +20,7 @@ func main() {
 
 	token := string(byte)
 	dg, err := discordgo.New("Bot " + token)
-	
+
 	if err != nil {
 		fmt.Errorf("Erro ao criar sessão do bot: ", err)
 		return
@@ -28,7 +28,7 @@ func main() {
 
 	EventListeners(dg)
 
-    err = dg.Open()
+	err = dg.Open()
 
 	if err != nil {
 		fmt.Errorf("Erro ao conectar no discord: ", err)
@@ -39,7 +39,7 @@ func main() {
 
 	fmt.Println("Bot Online com sucesso")
 
-    sc := make(chan os.Signal, 1)
+	sc := make(chan os.Signal, 1)
 	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt)
 	<-sc
 
@@ -48,4 +48,5 @@ func main() {
 
 func EventListeners(s *discordgo.Session) {
 	s.AddHandler(horizons.Command)
+	s.AddHandler(horizons.EmbedCommand)
 }
