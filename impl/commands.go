@@ -1,4 +1,4 @@
-package horizons
+package implHorizons
 
 import "github.com/bwmarrin/discordgo"
 
@@ -20,8 +20,6 @@ func RegisterCommands(s *discordgo.Session) error {
 			return err
 		}
 	}
-
-
 
 	return nil
 }

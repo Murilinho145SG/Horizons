@@ -1,6 +1,7 @@
 package main
 
 import (
+	"HorizonsBot/events"
 	"HorizonsBot/impl"
 	"fmt"
 	"os"
@@ -19,6 +20,7 @@ func main() {
 	}
 
 	token := string(byte)
+
 	dg, err := discordgo.New("Bot " + token)
 
 	if err != nil {
@@ -26,6 +28,8 @@ func main() {
 		return
 	}
 
+	dg.Identify.Intents = implHorizons.SetIntents()
+	
 	EventListeners(dg)
 
 	err = dg.Open()
@@ -35,7 +39,7 @@ func main() {
 		return
 	}
 
-	horizons.RegisterCommands(dg)
+	implHorizons.RegisterCommands(dg)
 
 	fmt.Println("Bot Online com sucesso")
 
@@ -47,6 +51,7 @@ func main() {
 }
 
 func EventListeners(s *discordgo.Session) {
-	s.AddHandler(horizons.Command)
-	s.AddHandler(horizons.EmbedCommand)
+	s.AddHandler(implHorizons.Command)
+	s.AddHandler(implHorizons.EmbedCommand)
+	s.AddHandler(eventsHorizons.MemberJoining)
 }
