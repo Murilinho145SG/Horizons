@@ -1,7 +1,7 @@
 package horizons
 
 import (
-	"HorizonsBot/horizons/utils"
+	"HorizonsBot/utils"
 
 	"github.com/bwmarrin/discordgo"
 )

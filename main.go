@@ -1,7 +1,7 @@
 package main
 
 import (
-	horizons "HorizonsBot/horizons/impl"
+	"HorizonsBot/impl"
 	"fmt"
 	"os"
 	"os/signal"

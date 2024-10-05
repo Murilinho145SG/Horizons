@@ -1,8 +1,7 @@
 package horizons
 
 import (
-	horizons "HorizonsBot/horizons/events"
-
+	"HorizonsBot/events"
 	"github.com/bwmarrin/discordgo"
 )
 
