@@ -1,4 +1,4 @@
-package implHorizons
+package commandsHorizons
 
 import "github.com/bwmarrin/discordgo"
 

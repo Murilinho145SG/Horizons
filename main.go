@@ -3,6 +3,7 @@ package main
 import (
 	"HorizonsBot/events"
 	"HorizonsBot/impl"
+	"HorizonsBot/impl/commands"
 	"fmt"
 	"os"
 	"os/signal"
@@ -51,7 +52,12 @@ func main() {
 }
 
 func EventListeners(s *discordgo.Session) {
-	s.AddHandler(implHorizons.Command)
-	s.AddHandler(implHorizons.EmbedCommand)
+	//Commands
+	s.AddHandler(commandsHorizons.Command)
+	s.AddHandler(commandsHorizons.EmbedCommand)
+	s.AddHandler(commandsHorizons.AntiPessoas)
+
+	//Events
 	s.AddHandler(eventsHorizons.MemberJoining)
+	s.AddHandler(eventsHorizons.MemberLeaving)
 }
